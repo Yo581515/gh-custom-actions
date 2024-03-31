@@ -12,6 +12,8 @@ jobs:
 
       - name: Load & Cache dependencies
         uses: ./.github/actions/cached-deps
+        with:
+          caching: false
 
       - name: Lint code
         run: npm run lint
@@ -27,6 +29,7 @@ jobs:
       - name: Test code
         id: run-tests
         run: npm run test
+
       - name: Upload test report
         if: failure() && steps.run-tests.outcome == 'failure'
         uses: actions/upload-artifact@v4
