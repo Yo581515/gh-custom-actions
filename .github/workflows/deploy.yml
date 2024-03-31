@@ -23,7 +23,7 @@ jobs:
 
       - name: Load & Cache dependencies
         uses: ./.github/actions/cached-deps
-      git
+
       - name: Test code
         id: run-tests
         run: npm run test
